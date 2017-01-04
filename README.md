@@ -4,9 +4,6 @@ Install: `npm i`
 
 Start: `npm start`
 
-Build: `npm run build`
-
-
 # License
 The MIT License (MIT)
 
