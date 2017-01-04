@@ -1,10 +1,10 @@
 #Locked's word
 
-Install: 'npm i'
+Install: `npm i`
 
-Start: 'npm start'
+Start: `npm start`
 
-Build: 'npm run build'
+Build: `npm run build`
 
 
 # License
