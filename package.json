@@ -1,0 +1,26 @@
+{
+  "name": "lockedsword",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --progress --colors",
+    "serve": "node src/server.js",
+    "start": "npm-run-all --parallel build serve"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "npm-run-all": "^4.0.0",
+    "word-definition": "^2.1.6",
+    "xml2js": "^0.4.17"
+  },
+  "devDependencies": {
+    "moment": "^2.17.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
