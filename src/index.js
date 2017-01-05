@@ -24,7 +24,25 @@ exports.main = function() {
 
   };
 
+  API.getAll(function (error, data) {
 
+      if (error) {
+
+        console.log('error fetching words.', error);
+        return;
+
+      }
+  
+    for (var i = 0; i < data.length; i++) {
+
+      var wordObj = data[i];
+      var outputElement = util.wordContainer(wordObj.word, wordObj.definition, wordObj.date);
+      words.appendChild(outputElement);
+
+    }
+
+  });
+  
   // This function looks up the word's definition, creates a HTML element and adds it to the words list
   function addWord (word) {
 

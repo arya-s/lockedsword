@@ -20,9 +20,9 @@ exports.createNode = function (type, className, content) {
 };
 
 // This function creates our basic word container, edit as you like
-exports.wordContainer = function (word, definition, dateFormat) {
+exports.wordContainer = function (word, definition, date) {
 
-  var now = dateFormat ? moment().format(dateFormat) : moment().format('MMMM Do YYYY, HH:MM');
+  var now = date ? date : moment().format('YYYY-MM-DD');
 
   var wrapper = exports.createNode('div', 'word-wrapper');
   var wordElm = exports.createNode('div', 'word', word);
