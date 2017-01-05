@@ -8,7 +8,7 @@ var wd         = require("word-definition");
 var app        = express();
 
 
-var file = path.resolve(__dirname, 'bin/words.json');
+var file = path.resolve(__dirname, '../bin/words.json');
 
 app.use('/', express.static(path.join(__dirname, '../bin')));
 app.use(bodyParser.json());

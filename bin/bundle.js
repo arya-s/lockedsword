@@ -77,7 +77,25 @@
 
 	  };
 
+	  API.getAll(function (error, data) {
 
+	      if (error) {
+
+	        console.log('error fetching words.', error);
+	        return;
+
+	      }
+	  
+	    for (var i = 0; i < data.length; i++) {
+
+	      var wordObj = data[i];
+	      var outputElement = util.wordContainer(wordObj.word, wordObj.definition, wordObj.date);
+	      words.appendChild(outputElement);
+
+	    }
+
+	  });
+	  
 	  // This function looks up the word's definition, creates a HTML element and adds it to the words list
 	  function addWord (word) {
 
@@ -131,9 +149,9 @@
 	};
 
 	// This function creates our basic word container, edit as you like
-	exports.wordContainer = function (word, definition, dateFormat) {
+	exports.wordContainer = function (word, definition, date) {
 
-	  var now = dateFormat ? moment().format(dateFormat) : moment().format('MMMM Do YYYY, HH:MM');
+	  var now = date ? date : moment().format('YYYY-MM-DD');
 
 	  var wrapper = exports.createNode('div', 'word-wrapper');
 	  var wordElm = exports.createNode('div', 'word', word);
@@ -15054,6 +15072,30 @@
 /***/ function(module, exports) {
 
 	var API = function () {
+	};
+
+	API.prototype.getAll = function (callback) {
+
+	  var options = {
+	    headers: {
+	      'Accept': 'application/json'
+	    },
+	    method: 'POST'
+	  };
+
+	  // Lookup the word on the server
+	  fetch('/all', options).then(function (response) {
+
+	    response.json().then(function(data) {  
+	      callback(null, data);
+	    });  
+
+	  }).catch(function (error) {
+
+	    callback(error);
+
+	  });
+
 	};
 
 	API.prototype.lookup = function (word, callback) {
