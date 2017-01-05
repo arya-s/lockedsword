@@ -4,14 +4,20 @@ var API  = require('./api');
 
 exports.main = function() {
 
-  var form  = document.getElementById('word-form');
-  var input = document.getElementById('add-input');
-  var words = document.getElementById('words');
+  var fieldset = document.getElementById('word-form-fieldset');
+  var form     = document.getElementById('word-form');
+  var input    = document.getElementById('add-input');
+  var words    = document.getElementById('words');
+  var loader   = document.getElementById('loader');
 
   form.onsubmit = function (event) {
 
     // Prevent default form submission so we don't refresh the page
     event.preventDefault(); 
+
+    // Disable the form until we are done with adding
+    fieldset.disabled = true;
+    loader.style.visibility = 'visible';
 
     // Get the user input and store it in the variable word
     var word = input.value;
@@ -48,6 +54,10 @@ exports.main = function() {
 
     // lookup the definition via the api
     API.lookup(word, function (error, definition) {
+
+      // Enable the form again for future adding
+      fieldset.disabled = false;
+      loader.style.visibility = 'hidden';
 
       if (error) {
 
