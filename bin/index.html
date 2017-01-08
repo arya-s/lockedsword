@@ -36,6 +36,32 @@
     #loader {
       visibility: hidden;
     }
+
+    @media (max-width: 500px) {
+      .add-container {
+        margin: 32px 0 0 0;
+      }
+
+      #word-form {
+        display: flex;
+        display: -webkit-flex;
+      }
+
+      #word-form .form-group {
+        flex: 1 1 auto;
+        -webkit-flex: 1 1 auto;
+        margin-bottom: 0;
+      }
+
+      #word-form .form-group #add-input {
+        width: 100%;
+      }
+
+      #word-form button {
+        height: 34px;
+        margin-left: 12px;
+      }
+    }
   </style>
 
   <title>Locked's word</title>
