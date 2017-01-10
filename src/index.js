@@ -1,5 +1,14 @@
+// Ugly ugly polyfills
+var Promise = require('promise-polyfill'); 
+
+if (!window.Promise) {
+  window.Promise = Promise;
+}
+
 var util = require('./utility');
 var API  = require('./api');
+
+
 
 
 exports.main = function() {
