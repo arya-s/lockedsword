@@ -9,8 +9,6 @@ var util = require('./utility');
 var API  = require('./api');
 
 
-
-
 exports.main = function() {
 
   var fieldset = document.getElementById('word-form-fieldset');

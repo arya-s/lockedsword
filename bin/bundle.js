@@ -527,8 +527,6 @@
 	var API  = __webpack_require__(119);
 
 
-
-
 	exports.main = function() {
 
 	  var fieldset = document.getElementById('word-form-fieldset');
